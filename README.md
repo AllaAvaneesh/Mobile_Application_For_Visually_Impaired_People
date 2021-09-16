@@ -20,8 +20,6 @@ Why Yolo ?
 
 they are a lot of models efficientdet, faster-RCNN, mobileNet which is the most scalable and light network but overall these, though Yolo is a multiplex network (i.e both very large in size and space) it is providing very accurate results comparatively. The biggest advantage of using YOLO is its superb speed – it's incredibly fast and can process 45 frames per second. YOLO also understands generalized object representation
 
-[pratical comparision](https://www.youtube.com/watch?v=llBhBSgoWPs)
-
 Block 2
 --------
 YOLO architecture study and extracting required outputs
