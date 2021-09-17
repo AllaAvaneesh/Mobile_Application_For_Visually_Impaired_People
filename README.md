@@ -99,7 +99,9 @@ def point_distance(x1,y1,x2,y2):
 if a query object is placed beside a small object then the program outputs the smaller object then we find it hard to find the small object itself 
 * In order to face such challenges we have moved with a greedy approach considering the objects which are close to the query object but that of relatively large size
 * Sorting by the ratio of its distance to the query object with its area will provide us relatively bigger object
+```
 distances[point_distance(v[0],v[1],point[0],point[1])/((coors[1][1]-coors[0][1])*(coors[1][0]-coors[0][0]))]=k
+```
 Object Instantiation and tracking
 ----------------------------------
 * There will be many classes of the same type in the given scenario but to identify specific objects we require tracking They are complex methods out there but we focused to just store the labels in an efficient manner so to present each object with its unique object name
