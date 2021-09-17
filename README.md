@@ -7,7 +7,7 @@ Tracking Objects from live feed over a Voice Assistant
 
 Block 1
 -------
-Import all The required libraries and load all the pre-trained weights already trained on the coco dataset
+Import all the required libraries and load all the pre-trained weights already trained on the coco dataset
 also store all the class names in a list
 ```
 import cv2
