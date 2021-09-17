@@ -118,6 +118,7 @@ Block 5
 2.  If the x coordinate of the object lies outside the bounding box of the query object and must be less than the query object and the y coordinate lies within the bounding box height it seems to be on the left
 3. Irrespective of the x coordinate if y coordinate lies above the bounding box it is said to be on the query object
 4. finally if the y coordinate lies above the bounding box its is said to be under the query object
+```
 def direct(point1,point2,obj,height,width):
     if point1[0]>point2[0]+(width/2) and (point1[1]<=point2[1]+(height/2) and point1[1]>=point2[1]-(height/2)):
         print("It is to the right of {}".format(obj))
@@ -129,6 +130,7 @@ def direct(point1,point2,obj,height,width):
         print("It is under the {}".format(obj))
     else:
         print("It is with the {}".format(obj))
+```        
 Block 6
 --------
 * Providing voice support to ease the process using voice commands
@@ -149,8 +151,8 @@ Block 7
 * The program continuously monitors the objects and updates their locations if any objects are missed from the view the iteration will remove the object from the dictionary liberating not found message if queried
 
 ----------------
-The future scope of this project is to personalize the objects to the people present in the scenario and also to custom train this on a variety of objects
+***The future scope of this project is to personalize the objects to the people present in the scenario and also to custom train this on a variety of objects***
 
-To run the modules on an independent machine and cover-up an API that provides service to the voice assistant from the LIVE feed tracking
+***To run the modules on an independent machine and cover-up an API that provides service to the voice assistant from the LIVE feed tracking***
 
 [Practical Implementation](https://drive.google.com/file/d/1y5Rw6geMx-1gqFu_oZ7n-LwgVJQNBqPC/view?usp=sharing)
