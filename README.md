@@ -109,3 +109,48 @@ We have taken a default dictionary as it is not possible to handle if an entry i
 The default dict is initialized with 0 so all the classes will have o objects detected before after that
 we have updated the dictionary with the objects count and then later use this count to mention a unique number to 
 each object in the scenario
+
+Block 5
+--------
+* This block is devoted to directional sense
+* After obtaining the object nearest to the query object we need to sense its direction four conditions can be chosen
+1. If the x coordinate of the object lies outside the bounding box of the query object and must be greater than the query object and the y coordinate lies within the bounding box height it seems to be on the right
+2.  If the x coordinate of the object lies outside the bounding box of the query object and must be less than the query object and the y coordinate lies within the bounding box height it seems to be on the left
+3. Irrespective of the x coordinate if y coordinate lies above the bounding box it is said to be on the query object
+4. finally if the y coordinate lies above the bounding box its is said to be under the query object
+def direct(point1,point2,obj,height,width):
+    if point1[0]>point2[0]+(width/2) and (point1[1]<=point2[1]+(height/2) and point1[1]>=point2[1]-(height/2)):
+        print("It is to the right of {}".format(obj))
+    elif point1[0]<point2[0]-(width/2) and (point1[1]<=point2[1]+(height/2) and point1[1]>=point2[1]-(height/2)):
+        print("It is to the left of {}".format(obj))
+    elif point1[1]<point2[1]+(height/2):
+        print("It is on the {}".format(obj))
+    elif point1[1]>point2[1]-(height/2):
+        print("It is under the {}".format(obj))
+    else:
+        print("It is with the {}".format(obj))
+Block 6
+--------
+* Providing voice support to ease the process using voice commands
+* Import the required packages and we are using pre-built audio present in windows10
+* A voice assistant has the following capabilities
+  1. speech recognition
+  2. Intelligent Search
+  3. customer engagement
+  4. mood sensing
+  5. simplifying processes
+* we have designed a voice system named (KAREN) who comes with a lot of functionalities, he will greet you by recognizing time, he can open mail, browsers, he can play songs, he can even search for things
+
+Block 7
+--------
+* After adding with these functionalities we combine all the modules together as a unit and include helper functions in the program that is connected to the voice system and finds any object when asked over speech
+* The program responds out to the user with the nearest object along with its position with respect to the query object
+* the service can be stopped by using the stop as a voice command 
+* The program continuously monitors the objects and updates their locations if any objects are missed from the view the iteration will remove the object from the dictionary liberating not found message if queried
+
+----------------
+The future scope of this project is to personalize the objects to the people present in the scenario and also to custom train this on a variety of objects
+
+To run the modules on an independent machine and cover-up an API that provides service to the voice assistant from the LIVE feed tracking
+
+[Practical Implementation](https://drive.google.com/file/d/1y5Rw6geMx-1gqFu_oZ7n-LwgVJQNBqPC/view?usp=sharing)
