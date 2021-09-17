@@ -151,8 +151,8 @@ Block 7
 * The program continuously monitors the objects and updates their locations if any objects are missed from the view the iteration will remove the object from the dictionary liberating not found message if queried
 
 ----------------
-***The future scope of this project is to personalize the objects to the people present in the scenario and also to custom train this on a variety of objects***
+****The future scope of this project is to personalize the objects to the people present in the scenario and also to custom train this on a variety of objects****
 
-***To run the modules on an independent machine and cover-up an API that provides service to the voice assistant from the LIVE feed tracking***
+**To run the modules on an independent machine and cover-up an API that provides service to the voice assistant from the LIVE feed tracking**
 
 [Practical Implementation](https://drive.google.com/file/d/1y5Rw6geMx-1gqFu_oZ7n-LwgVJQNBqPC/view?usp=sharing)
