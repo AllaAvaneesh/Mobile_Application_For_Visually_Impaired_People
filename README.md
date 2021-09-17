@@ -58,3 +58,52 @@ NMS and Identification
 * In the numerator we compute the area of overlap between the predicted bounding box and the ground-truth bounding box.
 * The denominator is the area of union, or more simply, the area encompassed by both the predicted bounding box and the ground-truth bounding box
 * considering the final confidence threshold and NMS threshold the final bounding box with max confidence is selected and tagged with class name along with confidence score
+
+Block 3
+--------
+* Here after the architecture study we need to obtain the configuration file and also the weights file and understand what outputs are required for our functionality
+* The standard yolo implementation by Joseph redmon returns coordinates of the center of the bounding boxes for the detected objects along with their width and height and also the confidence score along with their class 
+but these values are in abstract form using some methods we can find the exact values 
+1. The bounding box can be constructed from the coordinates obtained in the detections by using the height and width
+2. The class_id from which class name is extracted can be obtained by finding the argmax of the score obtained from the detections
+3. Using this class_id we can directly index for the confidence value
+```
+center_x=int(detection[0] * wt)
+center_y=int(detection[1] * ht)
+w=int(detection[2] * wt)
+h=int(detection[3] * ht)
+boxes.append([center_x,center_y,w,h])
+confidences.append((float(confidence)))
+classids.append(classid)
+```
+* After obtaining we can draw detections using opencv tools but there is a possibility that we can have more than one detection possible for the same class which better confidence
+* In order to avoid this scenario we use Non-max suppression which suppresses the bounding box considering only the best one
+*After Obtaining the Indices for unique detections we represent the boxes using opencv inbuilt functions such as rectangle, Circle, Text presenting the class name along with its confidence and also the center of the coordinates with x and y values mentioned
+
+Block 4
+-------
+* During the process of block 3, we maintain two dictionaries object and object1 where object stores the center whereas object1 stores the top-left and bottom-right coordinates of the detected objects
+* Our task here is to locate the object, for that we have defined some helper functions which calculates both point and line w.r.t point distance
+```
+def line_distance(a,b,c,x,y):
+    return a*x+b*y+c/(np.sqrt(a**2+b**2))
+```
+```
+def point_distance(x1,y1,x2,y2):
+    return np.sqrt((x2-x1)**2+(y2-y1)**2)
+```    
+* The line Distance function calculates the distance of the point from a line this is useful to check if the query object is close to the boundaries
+* The Point Distance is the distance between two points which is used to track the nearest object
+
+* The main turn here is that **the program always points to the nearest object or neglects the object if it is close to the boundaries**
+if a query object is placed beside a small object then the program outputs the smaller object then we find it hard to find the small object itself 
+* In order to face such challenges we have moved with a greedy approach considering the objects which are close to the query object but that of relatively large size
+* Sorting by the ratio of its distance to the query object with its area will provide us relatively bigger object
+distances[point_distance(v[0],v[1],point[0],point[1])/((coors[1][1]-coors[0][1])*(coors[1][0]-coors[0][0]))]=k
+Object Instantiation and tracking
+----------------------------------
+* There will be many classes of the same type in the given scenario but to identify specific objects we require tracking They are complex methods out there but we focused to just store the labels in an efficient manner so to present each object with its unique object name
+We have taken a default dictionary as it is not possible to handle if an entry is not present
+The default dict is initialized with 0 so all the classes will have o objects detected before after that
+we have updated the dictionary with the objects count and then later use this count to mention a unique number to 
+each object in the scenario
