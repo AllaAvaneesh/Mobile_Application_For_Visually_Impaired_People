@@ -9,6 +9,7 @@ Block 1
 -------
 Import all The required libraries and load all the pre-trained weights already trained on the coco dataset
 also store all the class names in a list
+```
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
@@ -16,7 +17,8 @@ net=cv2.dnn.readNetFromDarknet("yolo.cfg","yolov3-spp.weights")
 classes=[]
 with open('coco.names','r') as f:
     classes=[line.strip() for line in f.readlines()]
-Why Yolo ?
+```
+**Why Yolo ?**
 
 they are a lot of models efficientdet, faster-RCNN, mobileNet which is the most scalable and light network but overall these, though Yolo is a multiplex network (i.e both very large in size and space) it is providing very accurate results comparatively. The biggest advantage of using YOLO is its superb speed – it's incredibly fast and can process 45 frames per second. YOLO also understands generalized object representation
 
